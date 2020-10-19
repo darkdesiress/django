@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title>BMI Calculator</title>
+</head>
+<style media="screen">
+    body{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+        font-family: Arial, serif;
+    background-image: linear-gradient(120deg, #1F85DE, #1FDE78);
+        min-height: 100vh;
+    }
+    div{
+        width: 500px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        background-color: #fff;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 1px 1px 20px #ee5253;
+    }
+    h2{
+        font-size: 30px;
+        font-weight: 600;
+    }
+    text{
+        text-align: left;
+        margin-left: 150px;
+    }
+    #weight, #height{
+        color: #222f3e;
+        text-align: left;
+        font-size: 20px;
+        font-weight: 200;
+        outline: none;
+        border: none;
+        border-bottom: 1px solid #341f97;
+        width: 200px;
+    }
+    #weight:focus, #height:focus{
+        border-bottom: 2px solid #1F85DE;
+        width: 300px;
+        transition: 0.5s;
+    }
+    #result{
+        color: #1F85DE;
+    }
+    #res{
+        color: #1F85DE;
+    }
+    #btn{
+        font-family: Arial;
+        margin-top: 10px;
+        border: none;
+        color: #fff;
+        background-image: linear-gradient(120deg, #1F85DE, #1F85DE);
+        width: 150px;
+        padding: 10px;
+        border-radius: 30px;
+        outline: none;
+        cursor: pointer;
+    }
+    #btn:hover{
+        box-shadow: 1px 1px 10px #1F85DE;
+    }
+    #info{
+        font-size: 12px;
+        font-family: Arial;
+    }
+    </style>
+<script type="text/javascript">
+    function BMI() {
+        var height = document.getElementById('height').value;
+        var weight = document.getElementById('weight').value;
+        var bmi = weight / (height/100 * height/100);
+        var bmio = (bmi.toFixed(2));
+
+         if (bmi <= 18.5)
+             document.getElementById('res').innerHTML = "You are underweight"
+         if (bmi > 18.5 & bmi <= 24.9)
+             document.getElementById('res').innerHTML = "Your weight normal"
+        if (bmi > 25 & bmi <= 29.9)
+             document.getElementById('res').innerHTML = "You are overweight"
+        if (bmi > 30 & bmi <= 34.9)
+             document.getElementById('res').innerHTML = "You are obese"
+        if (bmi > 35)
+             document.getElementById('res').innerHTML = "You are extremly obese"
+
+
+        document.getElementById('result').innerHTML = "Your BMI is " + bmio
+    }
+    </script>
+<body>
+<div>
+    <h2>BMI Calculator</h2>
+    <p class="text">Height</p>
+    <input type="text" id="height">
+    <p class="text">Weight</p>
+    <input type="text" id="weight">
+    <p id="result"></p>
+        <p id="res"></p>
+
+    <button id="btn" onclick="BMI()">Calculate</button>
+    <p id="info">Please enter height [cm] and weight [kg]</p>
+</div>
+</body>
+</html>
